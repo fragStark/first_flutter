@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'home.dart';
+import 'bottomNavigationWidget.dart';
+import 'like.dart';
 
 
-void main() => runApp(new MyApp());
+void main() => runApp(new NavigationPage());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      home: HomePage(),
+//      initialRoute: '/',
+//      routes: {
+//        '/': (context) => MainPage(),
+//        '/home': (context) => HomePage(),
+//        '/like': (context) => LikeApp(),
+//      },
+      home: MainPage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget{
+class MainPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new HomePageState();
+    return new MainPageState();
   }
 }
 
-class HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
+class MainPageState extends State<MainPage> {
+  int _currentInedx = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 18);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
@@ -29,14 +38,30 @@ class HomePageState extends State<HomePage> {
       style: optionStyle,
     ),
     Text(
-      'Index 0 Home',
+      'Index 1 Category',
       style: optionStyle,
     ),
     Text(
-      'Index 0 Home',
+      'Index 2 Settings',
       style: optionStyle,
     )
   ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      debugPrint('$_currentInedx');
+      _currentInedx = index;
+    });
+
+//    if (_currentInedx == 1){
+//      Navigator.of(context).push(new MaterialPageRoute(
+//          builder: (BuildContext context) {
+//            return  new LikeApp();
+//          }
+//      ));
+//    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -57,23 +82,32 @@ class HomePageState extends State<HomePage> {
           child: Text('这是Drawer',style: TextStyle(fontSize: 18),),
         ),
       ),
-      body: Align(alignment: Alignment.center, child: Text('这是Body'),),
+//      body: Align(alignment: Alignment.center, child: Text('这是Body'),),
+//      body: WillPopScope(
+//        child: PageView(
+//          children: <Widget>[
+//            LikeApp(),
+////            HomePage()
+//          ],
+//        ),
+//      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       persistentFooterButtons: [
-//        DropdownButton(
-//          icon: Icon(Icons.add),
-//        ),
         IconButton(
           icon: Icon(Icons.add),
           onPressed: () {},
         ),
         RaisedButton(
-          child: Text('这是',style: TextStyle(color: Colors.green),),
-          onPressed: () {},
+          child: Text('跳转首页',style: TextStyle(color: Colors.green),),
+          onPressed: () {
+//            Navigator.pushNamed(context, '/like');
+          },
         ),
         RaisedButton(
-          child: Text('底部',style: TextStyle(color: Colors.green),),
-          onPressed: () {},
+          child: Text('跳转like',style: TextStyle(color: Colors.green),),
+          onPressed: () {
+//            Navigator.pushNamed(context, '/like');
+          },
         ),
         RaisedButton(
           child: Text('按钮',style: TextStyle(color: Colors.green),),
@@ -82,6 +116,10 @@ class HomePageState extends State<HomePage> {
       ],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        currentIndex: _currentInedx,
+        selectedItemColor: Colors.white,
+        onTap: _onItemTapped,
+        backgroundColor: Colors.orangeAccent,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -94,8 +132,6 @@ class HomePageState extends State<HomePage> {
             title: Text('设置'),
           ),
         ],
-        fixedColor: Colors.white,
-        backgroundColor: Colors.orangeAccent,
       ),
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
