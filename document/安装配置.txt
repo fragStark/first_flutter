@@ -1,0 +1,26 @@
+安装配置：
+	1.下载安装Android Studio，会自动安装SDK在C:\Users\***\AppData\Local\Android\Sdk目录下，安装好之后目录下会存在tools以及platform-tools文件夹
+		注：版本问题：3.6版本的不会生成tools文件夹，（我是安装低版本之后升级到新版本）
+	2.配置ANDROID_HOME,为SDK的路径，在Path下添加%ANDROID_HOME%/tools、%ANDROID_HOME%/platform-tools
+	以上安卓环境配置完成
+flutter配置：
+	1.下载flutter安装包，解压即可，配置全局变量Path下加入flutter的bin目录；
+	2.添加环境变量（为了安装fluter更快？代理吧可能）
+		PUB_HOSTED_URL：https://pub.flutter-io.cn
+		FLUTTER_STORAGE_BASE_URL：https://storage.flutter-io.cn
+	3.cmd下执行flutter doctor
+整合：
+	1.AS下安装flutter以及dart插件
+		注：安装插件可能会请求超时，到jetbrains官方插件网下载对应Android studio版本的插件，
+		从硬盘安装插件（选择压缩包默认就会解压到C:\Users\***\.AndroidStudio3.6\config\plugins下，出现错误也可以把这文件夹清空，再次安装）
+	2.cmd下执行flutter doctor
+		注：Android license status unknow问题：
+			执行flutter doctor --android-licenses（跟着操作，全选yes）		
+			进入sdk/tools/bin目录下，sdkmanager --update(这时候的问题可能与java版本过高有关，更换为1.8)
+运行前：flutter packages get，
+	注：如果卡主Running Gradle task 'assembleDebug'...（自行百度）
+运行时gradle卡住（挂vpn）
+
+
+	
+	
