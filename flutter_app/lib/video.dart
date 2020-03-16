@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class VideoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new MaterialApp(
       title: '视频',
       home: new Video(),
@@ -15,7 +14,6 @@ class VideoPage extends StatelessWidget {
 class Video extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new VideoState();
   }
 }
@@ -23,7 +21,6 @@ class Video extends StatefulWidget {
 class VideoState extends State<Video> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Scaffold(
       appBar: AppBar(
         title: Text('我的视频'),

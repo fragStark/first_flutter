@@ -30,19 +30,19 @@ class RandomWordsState extends State<RandomWords> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Startup Name Generator111'),
-        actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
-        ],
+//        actions: <Widget>[
+//          new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
+//        ],
       ),
       body: _buildSuggestions(),
-      persistentFooterButtons: [
-        RaisedButton(
-          child: Text('跳转home',style: TextStyle(color: Colors.green),),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ],
+//      persistentFooterButtons: [
+//        RaisedButton(
+//          child: Text('跳转home',style: TextStyle(color: Colors.green),),
+//          onPressed: () {
+//            Navigator.pop(context);
+//          },
+//        ),
+//      ],
     );
   }
   Widget _buildSuggestions() {

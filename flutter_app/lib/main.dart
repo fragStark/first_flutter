@@ -5,7 +5,7 @@ import 'bottomNavigationWidget.dart';
 import 'like.dart';
 
 
-void main() => runApp(new NavigationPage());
+void main() => runApp(new LikeApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,12 @@ const TextStyle optionStyle = TextStyle(fontSize: 18);
 class MainPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new MainPageState();
   }
 }
 
 class MainPageState extends State<MainPage> {
-  int _currentInedx = 0;
+  int _currentIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
@@ -49,8 +48,8 @@ class MainPageState extends State<MainPage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      debugPrint('$_currentInedx');
-      _currentInedx = index;
+      debugPrint('$_currentIndex');
+      _currentIndex = index;
     });
 
 //    if (_currentInedx == 1){
@@ -64,7 +63,6 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Scaffold(
       appBar: AppBar(
         title: Text('这是AppBar'),
@@ -116,7 +114,7 @@ class MainPageState extends State<MainPage> {
       ],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: _currentInedx,
+        currentIndex: _currentIndex,
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,
         backgroundColor: Colors.orangeAccent,
