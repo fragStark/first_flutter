@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+const TextStyle optionStyle = TextStyle(fontSize: 18);
 class MainPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -31,7 +31,7 @@ class MainPage extends StatefulWidget{
 
 class MainPageState extends State<MainPage> {
   int _currentInedx = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 18);
+
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0 Home',
