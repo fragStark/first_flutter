@@ -2,6 +2,8 @@ import "dart:ui" as ui show window;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'listviewpage.dart';
+
 class PhotoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,27 +29,9 @@ class PhotoState extends State<Photo> {
       appBar: AppBar(
         title: Text('我的照片'),
       ),
-//      body: Container(
-//        child: new Image.asset(
-//            "assets/images/blue.png",
-//            width: MediaQueryData.fromWindow(ui.window).size.width),
-//      ),
-      body: _buildListView(),
+      body: ListImage(),
     );
   }
 
-  Widget _buildListView() {
-    return new ListView.builder(
-      itemBuilder: (context, i) {
-
-      },
-    );
-  }
-
-  void addContent() {
-    contents.add(new Scaffold(
-
-    ));
-  }
 
 }

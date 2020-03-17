@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterapp/imagepage.dart';
+import 'package:flutterapp/listviewpage.dart';
 import 'home.dart';
-import 'bottomNavigationWidget.dart';
 import 'like.dart';
+import 'textpage.dart';
 
 
-void main() => runApp(new LikeApp());
+void main() => runApp(new Home());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-//      initialRoute: '/',
-//      routes: {
-//        '/': (context) => MainPage(),
-//        '/home': (context) => HomePage(),
-//        '/like': (context) => LikeApp(),
-//      },
       home: MainPage(),
     );
   }
