@@ -1,4 +1,4 @@
-var bookList = [
+List bookList = [
   {
     "title" : "商海风云",
     "author" : "卷帘西风1",
@@ -43,5 +43,10 @@ var bookList = [
     "title" : "全世界都想要的他，属于我",
     "author" : "蒋牧童",
     "image" : "https://bookbk.img.zhangyue01.com/idc_1/m_1,w_93,h_124,q_100/af0f8805/group61/M00/14/22/CmQUOV1bxAiEN2p-AAAAAIm6Eok349149569.jpg?v=IZOEbV-g&t=CmQUOV1bxAg."
+  },
+  {
+    "title" : "都挺好",
+    "author" : "阿耐",
+    "image" : "https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/doc/pic/item/c8ea15ce36d3d539af2709c63487e950352ab098.jpg"
   }
 ];

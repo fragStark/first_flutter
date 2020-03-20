@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: '底部导航',
       home: new HomePage(),
     );
@@ -24,8 +25,10 @@ class HomePage extends StatefulWidget{
 }
 
 class HomePageState extends State<HomePage> {
-  List<Widget> pages = new List();
+  List pages = new List<Widget>();
   int _currentIndex = 0;
+  var _defaultColor = Colors.grey;
+  var _activeColor = Colors.orange;
   @override
   void initState() {
     pages
@@ -37,36 +40,34 @@ class HomePageState extends State<HomePage> {
   }
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: pages[_currentIndex],
+      body: this.pages[this._currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         fixedColor: Colors.orange,
-        backgroundColor: Colors.white,
+        iconSize: 35,
+        type: BottomNavigationBarType.fixed,  //配置底部可以有多个按钮，底部导航多于三个时使用
+//        backgroundColor: Colors.white,
         onTap: (int i) {
           setState(() {
             _currentIndex = i;
           });
         },
-        iconSize: 35,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(
-              Icons.insert_photo,
-
-            ),
-            title: new Text('照片'),
+            icon: new Icon(Icons.photo_library),
+            title: new Text('照片', style: TextStyle(color: _currentIndex == 0 ? _activeColor : _defaultColor)),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.book,color: Colors.green,),
-            title: new Text('书架'),
+            icon: new Icon(Icons.book,),
+            title: new Text('书架', style: TextStyle(color: _currentIndex == 1 ? _activeColor : _defaultColor)),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.library_music),
-            title: new Text('音乐'),
+            icon: new Icon(Icons.library_music,),
+            title: new Text('音乐', style: TextStyle(color: _currentIndex == 2 ? _activeColor : _defaultColor)),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.live_tv),
-            title: new Text('视频'),
+            icon: new Icon(Icons.video_library,),
+            title: new Text('视频', style: TextStyle(color: _currentIndex == 3 ? _activeColor : _defaultColor)),
           )
         ],
       ),

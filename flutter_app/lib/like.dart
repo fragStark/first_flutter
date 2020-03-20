@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutterapp/photo.dart';
 
 class LikeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Startup Name Generator",
       theme: new ThemeData(
         primaryColor: Colors.yellow,
@@ -30,9 +32,15 @@ class RandomWordsState extends State<RandomWords> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Startup Name Generator111'),
-//        actions: <Widget>[
-//          new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
-//        ],
+        actions: <Widget>[
+          new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          label: Text('跳转首页')
       ),
       body: _buildSuggestions(),
 //      persistentFooterButtons: [

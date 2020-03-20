@@ -5,6 +5,7 @@ class VideoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: '视频',
       home: new Video(),
     );
