@@ -7,6 +7,7 @@ class BookPage extends StatefulWidget {
 }
 
 class _BookPageState extends State<BookPage> {
+  Set _likedBooks = new Set();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -60,9 +61,16 @@ class _BookPageState extends State<BookPage> {
             title: Text(bookList[i]['title']),
             subtitle: Text(bookList[i]['author']),
             trailing: IconButton(
-              icon: Icon(Icons.favorite),
               onPressed:(){
+                setState(() {
+                  if (_likedBooks.contains(bookList[i])) {
+                    _likedBooks.remove(bookList[i]);
+                  }else {
+                    _likedBooks.add(bookList[i]);
+                  }
+                });
               },
+              icon: _likedBooks.contains(bookList[i])? Icon(Icons.favorite,color: Colors.red,) : Icon(Icons.favorite_border),
             ),
           );
         }
@@ -95,7 +103,16 @@ class _BookPageState extends State<BookPage> {
             title: Text(bookList[index]['title']),
             subtitle: Text(bookList[index]['author']),
             trailing: IconButton(
-              icon: Icon(Icons.favorite),
+              onPressed:(){
+                setState(() {
+                  if (_likedBooks.contains(bookList[index])) {
+                    _likedBooks.remove(bookList[index]);
+                  }else {
+                    _likedBooks.add(bookList[index]);
+                  }
+                });
+              },
+              icon: _likedBooks.contains(bookList[index])? Icon(Icons.favorite,color: Colors.red,) : Icon(Icons.favorite_border),
             ),
           )
         ],
@@ -106,7 +123,6 @@ class _BookPageState extends State<BookPage> {
       ),
     );
   }
-
 }
 
 class BookList extends StatelessWidget {
