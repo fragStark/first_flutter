@@ -1,3 +1,4 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 
 class ButtonPage extends StatefulWidget {
@@ -6,6 +7,7 @@ class ButtonPage extends StatefulWidget {
 }
 
 class _ButtonPageState extends State<ButtonPage> {
+  var _date = DateTime.now();
   final _username = null;
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class _ButtonPageState extends State<ButtonPage> {
         children: <Widget>[
           _buildName(),
           _buildPassword(),
+          _buildDateTime(),
           Row(
               children: <Widget>[
                 _buildRegisterButton(),
@@ -98,5 +101,55 @@ class _ButtonPageState extends State<ButtonPage> {
         onTap: (){},
       ),
     );
+  }
+
+  /// 时间框
+  Widget _buildDateTime() {
+
+    return Padding(
+      padding: EdgeInsets.only(left: 40,right: 40,bottom: 20),
+      child: InkWell(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              formatDate(_date, [yyyy, '-', mm, '-', dd, '   ', HH, ':', nn, ':', ss]),
+              style: TextStyle(fontSize: 20),
+            ),
+            Icon(Icons.arrow_drop_down),
+          ],
+        ),
+        onTap: () {
+          _showDateTimePicker();
+        },
+      ),
+    );
+  }
+//  构建日期框
+  _showDateTimePicker() async {
+    var result = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(DateTime.now().year-10),
+        lastDate: DateTime(DateTime.now().year+10),
+    );
+    debugPrint(result.toString());
+    setState(() {
+      this._date = result;
+    });
+  }
+
+  _showTimePicker() async {
+    var time = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(),
+
+    );
+  }
+
+  @override
+  void initState() {
+    debugPrint(DateTime.now().toString());
+    debugPrint(formatDate(DateTime(2018, 02, 02, 15, 11, 15), [yyyy, '年', mm, '月', dd, '日', hh, '时', nn, '分', ss, '秒']));
   }
 }

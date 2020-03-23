@@ -7,14 +7,26 @@ import 'photo.dart';
 import 'video.dart';
 import 'book_page.dart';
 import 'publish_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+//      设置语言
+//      localizationsDelegates: [
+//        _GlobalCupertinoLocalizationsDelegate.
+//      ],
+//      supportedLocales: [
+//        const Locale('zh', 'CH'),
+//        const Locale('en', 'US'),
+//      ],
       debugShowCheckedModeBanner: false,
       title: '底部导航',
-      home: new HomePage(),
+      routes: {
+        '/' : (context)=>HomePage(),
+        '/button' : (context)=>ButtonPage()
+      },
     );
   }
 
@@ -128,9 +140,7 @@ class HomePageState extends State<HomePage> {
             IconButton(
               icon: Icon(Icons.business_center),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ButtonPage(),
-                ));
+                Navigator.pushNamed(context, '/button');
               },
             )
           ],
