@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'home.dart';
 
 class LikeApp extends StatelessWidget {
   @override
@@ -38,6 +39,7 @@ class RandomWordsState extends State<RandomWords> {
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
             Navigator.of(context).pop();
+//          Navigator.pushNamed(context, "/");
           },
           label: Text('跳转首页')
       ),

@@ -1,36 +1,45 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:music_player/music_player.dart';
 
-class MusicPage extends StatelessWidget {
+class MusicPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: '音乐',
-      home: new Music(),
-    );
-  }
+  _MusicPageState createState() => _MusicPageState();
 }
 
-class Music extends StatefulWidget {
+class _MusicPageState extends State<MusicPage> {
+//  MusicPlayer musicPlayer;
   @override
-  State<StatefulWidget> createState() {
-    return new MusicState();
+  void initState() {
+    super.initState();
+    initPlatformState();
   }
-}
 
-class MusicState extends State<Music> {
+  // Initializing the Music Player and adding a single [PlaylistItem]
+  Future<void> initPlatformState() async {
+//    musicPlayer = MusicPlayer();
+  }
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('我的音乐'),
         centerTitle: true,
       ),
       body: Center(
-        child: new Text('这是音乐',style: TextStyle(fontSize: 30)),
+        child: RaisedButton(
+//          onPressed: () => musicPlayer.play(MusicItem(
+//            trackName: 'Sample',
+//            albumName: 'Sample Album',
+//            artistName: 'Sample Artist',
+//            url: 'https://goo.gl/5RQjTQ',
+////            coverUrl: 'https://goo.gl/Wd1yPP',
+//            duration: Duration(seconds: 255),
+//          )),
+          child: Text('Play'),
+        ),
       ),
     );
   }
-
 }
+

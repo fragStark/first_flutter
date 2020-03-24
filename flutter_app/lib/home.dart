@@ -14,18 +14,20 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
 //      设置语言
-//      localizationsDelegates: [
-//        _GlobalCupertinoLocalizationsDelegate.
-//      ],
-//      supportedLocales: [
-//        const Locale('zh', 'CH'),
-//        const Locale('en', 'US'),
-//      ],
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('zh', 'CH'),
+        const Locale('en', 'US'),
+      ],
       debugShowCheckedModeBanner: false,
       title: '底部导航',
       routes: {
         '/' : (context)=>HomePage(),
-        '/button' : (context)=>ButtonPage()
+        '/button' : (context)=>ButtonPage(),
+        '/like' : (context)=>LikeApp(),
       },
     );
   }
@@ -111,40 +113,46 @@ class HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       drawer: Drawer(
-        child: Scaffold(
-          body: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: UserAccountsDrawerHeader(
-                        accountEmail: Text('123456789@qq.com'),
-                        accountName: Text('凌霄殿的大帝'),
-                        currentAccountPicture: CircleAvatar(
-                          backgroundImage: NetworkImage('https://tse4-mm.cn.bing.net/th/id/OIP.RMp8sfrvpc1R0pAQhB4lJgHaJQ?w=203&h=254&c=7&o=5&dpr=1.25&pid=1.7',),
-                        ),
-                        decoration: BoxDecoration(
-                            image: DecorationImage(image: NetworkImage('http://www.2qqtouxiang.com/pic/PF7130_09.jpg'), fit: BoxFit.cover)
-                        ),
-                      )
-                  )
-                ],
-              ),
-              _buildDrawerBody(),
-            ],
-          ),
-          persistentFooterButtons: <Widget>[
-            IconButton(
-              icon: Icon(Icons.settings),
+          child: Scaffold(
+            body: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: UserAccountsDrawerHeader(
+                          accountEmail: Text('123456789@qq.com'),
+                          accountName: Text('凌霄殿的大帝'),
+                          currentAccountPicture: CircleAvatar(
+                            backgroundImage: NetworkImage('https://tse3-mm.cn.bing.net/th/id/OIP.9Mq6yFePbNcdQij7fQqtHAHaNK?w=168&h=300&c=7&o=5&dpr=1.25&pid=1.7',),
+                          ),
+                          decoration: BoxDecoration(
+                              image: DecorationImage(image: NetworkImage('https://pic4.zhimg.com/80/v2-1397aa9635c0910e282aead96d505052_720w.jpg'), fit: BoxFit.cover)
+                          ),
+                        )
+                    )
+                  ],
+                ),
+                _buildDrawerBody(),
+              ],
             ),
-            IconButton(
-              icon: Icon(Icons.business_center),
-              onPressed: () {
-                Navigator.pushNamed(context, '/button');
-              },
-            )
-          ],
-        )
+            persistentFooterButtons: <Widget>[
+              IconButton(
+                icon: Icon(Icons.settings, color: Colors.blue,),
+              ),
+              IconButton(
+                icon: Icon(Icons.business_center, color: Colors.green,),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/button');
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.add_alert, color: Colors.orangeAccent,),
+                onPressed: () {
+                  Navigator.pushNamed(context, '');
+                },
+              )
+            ],
+          )
       ),
     );
   }
@@ -179,9 +187,7 @@ class HomePageState extends State<HomePage> {
           title: Text('我的喜欢', style: TextStyle(fontSize: 20),),
           trailing: Icon(Icons.arrow_forward_ios),
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context)=>LikeApp()
-            ));
+            Navigator.pushNamed(context, '/like');
           },
         ),
         Divider(height: 5,thickness: 1, color: Colors.black,),

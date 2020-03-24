@@ -1,5 +1,7 @@
 import 'package:date_format/date_format.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class ButtonPage extends StatefulWidget {
   @override
@@ -8,6 +10,9 @@ class ButtonPage extends StatefulWidget {
 
 class _ButtonPageState extends State<ButtonPage> {
   var _date = DateTime.now();
+  var _otherDateTime = DateTime.now();
+  var _otherTime = DateTime.now();
+  var _other = DateTime.now();
   final _username = null;
   @override
   Widget build(BuildContext context) {
@@ -21,30 +26,24 @@ class _ButtonPageState extends State<ButtonPage> {
           _buildName(),
           _buildPassword(),
           _buildDateTime(),
-          Row(
-              children: <Widget>[
-                _buildRegisterButton(),
-              ]
-          ),
+          _buildOtherDateTime(),
           SizedBox(height: 10,),
-          Row(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(left: 40, right: 40),
-                height: 60,
-                width: MediaQuery.of(context).size.width,
-                child: OutlineButton(
-                  child: Text('注册', style: TextStyle(fontSize: 24, color: Colors.black),),
-                  color: Colors.orange,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))
-                  ),
-                  onPressed: () {
-                  },
-                ),
-              )
-            ],
-          )
+          _buildRegisterButton(),
+          SizedBox(height: 10,),
+          Container(
+            padding: EdgeInsets.only(left: 40, right: 40),
+            height: 60,
+            width: MediaQuery.of(context).size.width,
+            child: OutlineButton(
+              child: Text('注册', style: TextStyle(fontSize: 24, color: Colors.black),),
+              color: Colors.orange,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
+              onPressed: () {
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -113,7 +112,7 @@ class _ButtonPageState extends State<ButtonPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              formatDate(_date, [yyyy, '-', mm, '-', dd, '   ', HH, ':', nn, ':', ss]),
+              formatDate(_date, [yyyy, '-', mm, '-', dd, ]),
               style: TextStyle(fontSize: 20),
             ),
             Icon(Icons.arrow_drop_down),
@@ -139,16 +138,79 @@ class _ButtonPageState extends State<ButtonPage> {
     });
   }
 
-  _showTimePicker() async {
-    var time = await showTimePicker(
-      context: context,
-      initialTime: TimeOfDay(),
-
+  Widget _buildOtherDateTime() {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(formatDate(_otherDateTime, [yyyy, '-', mm, '-', dd,]),style: TextStyle(fontSize: 18),),
+            IconButton(
+                icon: Icon(Icons.arrow_drop_down),
+                onPressed: () {
+                  DatePicker.showDatePicker(
+                      context,
+                      showTitleActions: true,
+                      locale: LocaleType.zh,
+                      onChanged: (date) {
+                        setState(() {
+                          _otherDateTime = date;
+                        });
+                      }
+                  );
+                }
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(formatDate(_otherTime, [hh, ':', nn, ':', ss,]),style: TextStyle(fontSize: 18),),
+            IconButton(
+                icon: Icon(Icons.arrow_drop_down),
+                onPressed: () {
+                  DatePicker.showTimePicker(
+                      context,
+                      showTitleActions: true,
+                      locale: LocaleType.zh,
+                      onChanged: (date) {
+                        setState(() {
+                          _otherTime = date;
+                        });
+                      }
+                  );
+                }
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(formatDate(_other, [yyyy, '-', mm, '-', dd, ' ', hh, ':', nn, ':', ss,]),style: TextStyle(fontSize: 18),),
+            IconButton(
+                icon: Icon(Icons.arrow_drop_down),
+                onPressed: () {
+                  DatePicker.showDateTimePicker(
+                      context,
+                      showTitleActions: true,
+                      locale: LocaleType.zh,
+                      onChanged: (date) {
+                        setState(() {
+                          _other = date;
+                        });
+                      }
+                  );
+                }
+            ),
+          ],
+        ),
+      ],
     );
   }
 
   @override
   void initState() {
+    super.initState();
     debugPrint(DateTime.now().toString());
     debugPrint(formatDate(DateTime(2018, 02, 02, 15, 11, 15), [yyyy, '年', mm, '月', dd, '日', hh, '时', nn, '分', ss, '秒']));
   }

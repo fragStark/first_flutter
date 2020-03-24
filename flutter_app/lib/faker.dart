@@ -50,3 +50,19 @@ List bookList = [
     "image" : "https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/doc/pic/item/c8ea15ce36d3d539af2709c63487e950352ab098.jpg"
   }
 ];
+
+List videoList = [
+  {
+    "title" : "商海风云",
+    "author" : "卷帘西风1",
+    "url" : "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4"
+  }
+];
+
+List musicList = [
+  {
+    "title" : "商海风云",
+    "author" : "卷帘西风1",
+    "url" : "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4"
+  }
+];
