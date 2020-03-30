@@ -8,6 +8,16 @@ class BookPage extends StatefulWidget {
 
 class _BookPageState extends State<BookPage> {
   Set _likedBooks = new Set();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

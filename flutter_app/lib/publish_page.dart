@@ -7,6 +7,7 @@ class PublishPage extends StatefulWidget {
 }
 
 class _PublishPageState extends State<PublishPage> {
+
   var _title = TextEditingController();
   var _author = TextEditingController();
   var _image = TextEditingController();
@@ -116,5 +117,15 @@ class _PublishPageState extends State<PublishPage> {
         },
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

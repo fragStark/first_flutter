@@ -197,6 +197,12 @@ class HomePageState extends State<HomePage> {
           trailing: Icon(Icons.arrow_forward_ios),
         ),
         Divider(height: 5,thickness: 1, color: Colors.black,),
+        ListTile(
+          leading: Icon(Icons.sync_problem,color: Colors.red,),
+          title: Text('进度条 ', style: TextStyle(fontSize: 20),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+        Divider(height: 5,thickness: 1, color: Colors.black,),
       ],
     );
   }
