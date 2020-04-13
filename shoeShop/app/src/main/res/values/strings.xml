@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">shoeShop</string>
+    <string name="message_hint">默认字体</string>
+    <string name="send_button_name">点击发送</string>
+</resources>

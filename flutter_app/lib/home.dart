@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/animation.dart';
+import 'package:flutterapp/gesture.dart';
 import 'package:flutterapp/button_page.dart';
 import 'package:flutterapp/like.dart';
 import 'music.dart';
@@ -28,10 +30,11 @@ class Home extends StatelessWidget {
         '/' : (context)=>HomePage(),
         '/button' : (context)=>ButtonPage(),
         '/like' : (context)=>LikeApp(),
+        '/gesture' : (context)=>GesturePage(),
+        '/animation' : (context)=>AnimationPage(),
       },
     );
   }
-
 }
 
 class HomePage extends StatefulWidget{
@@ -149,6 +152,18 @@ class HomePageState extends State<HomePage> {
                 icon: Icon(Icons.add_alert, color: Colors.orangeAccent,),
                 onPressed: () {
                   Navigator.pushNamed(context, '');
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.list, color: Colors.green,),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/gesture');
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.business, color: Colors.brown,),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/animation');
                 },
               )
             ],
