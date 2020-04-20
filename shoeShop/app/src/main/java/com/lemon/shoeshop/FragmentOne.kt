@@ -13,8 +13,8 @@ class FragmentOne : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_one, container, false);
-        val view: TextView = root.findViewById(R.id.text);
-        return root;
+        val root = inflater.inflate(R.layout.fragment_one, container, false)
+        val view: TextView = root.findViewById(R.id.text)
+        return root
     }
 }
