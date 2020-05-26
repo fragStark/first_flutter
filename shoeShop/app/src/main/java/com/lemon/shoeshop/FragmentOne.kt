@@ -11,11 +11,13 @@ import androidx.fragment.app.Fragment
 
 
 class FragmentOne : Fragment() {
-    private val ARG_PARAM = "param_key"
-    private val mParam: String? = null
-    private val mActivity: Activity? = null
+    val ARG_PARAM = "param_key"
+    var mParam: String? = null
+    var mActivity: Activity? = null
 
     override fun onAttach(context: Context) {
+//        mActivity = context
+        mParam = arguments?.getString(ARG_PARAM)
         super.onAttach(context)
     }
 
