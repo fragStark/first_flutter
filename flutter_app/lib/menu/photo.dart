@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/like.dart';
 
-import 'listviewpage.dart';
+import '../listviewpage.dart';
 
 class PhotoPage extends StatelessWidget {
   @override

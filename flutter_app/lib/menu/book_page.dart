@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/faker.dart';
+import 'package:flutterapp/util/faker.dart';
 
 class BookPage extends StatefulWidget {
   @override

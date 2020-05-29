@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/animation.dart';
+import 'package:flutterapp/drawer/animation.dart';
 import 'package:flutterapp/drawer/counter.dart';
 import 'package:flutterapp/drawer/parent_page.dart';
-import 'package:flutterapp/gesture.dart';
-import 'package:flutterapp/button_page.dart';
+import 'package:flutterapp/drawer/gesture.dart';
+import 'package:flutterapp/drawer/button_page.dart';
 import 'package:flutterapp/like.dart';
 import 'music.dart';
 import 'photo.dart';
@@ -142,74 +142,74 @@ class HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       drawer: Drawer(
           child: Scaffold(
-        body: Column(
-          children: <Widget>[
-            Row(
+            body: Column(
               children: <Widget>[
-                Expanded(
-                    child: UserAccountsDrawerHeader(
-                  accountEmail: Text('123456789@qq.com'),
-                  accountName: Text('凌霄殿的大帝'),
-                  currentAccountPicture: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      'https://tse3-mm.cn.bing.net/th/id/OIP.9Mq6yFePbNcdQij7fQqtHAHaNK?w=168&h=300&c=7&o=5&dpr=1.25&pid=1.7',
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              'https://pic4.zhimg.com/80/v2-1397aa9635c0910e282aead96d505052_720w.jpg'),
-                          fit: BoxFit.cover)),
-                ))
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: UserAccountsDrawerHeader(
+                          accountEmail: Text('123456789@qq.com'),
+                          accountName: Text('凌霄殿的大帝'),
+                          currentAccountPicture: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            'https://tse3-mm.cn.bing.net/th/id/OIP.9Mq6yFePbNcdQij7fQqtHAHaNK?w=168&h=300&c=7&o=5&dpr=1.25&pid=1.7',
+                          ),
+                        ),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  'https://pic4.zhimg.com/80/v2-1397aa9635c0910e282aead96d505052_720w.jpg'),
+                              fit: BoxFit.cover)),
+                    ))
+                  ],
+                ),
+                _buildDrawerBody(),
               ],
             ),
-            _buildDrawerBody(),
-          ],
-        ),
-        persistentFooterButtons: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.blue,
-            ),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.business_center,
-              color: Colors.green,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/button');
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.add_alert,
-              color: Colors.orangeAccent,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '');
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.list,
-              color: Colors.green,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/gesture');
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.business,
-              color: Colors.brown,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/animation');
-            },
-          )
-        ],
+            persistentFooterButtons: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.blue,
+                ),
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.business_center,
+                  color: Colors.green,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/button');
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.add_alert,
+                  color: Colors.orangeAccent,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '');
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.list,
+                  color: Colors.green,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/gesture');
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.business,
+                  color: Colors.brown,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/animation');
+                },
+              )
+           ],
       )),
     );
   }
