@@ -46,6 +46,4 @@ class PhotoState extends State<Photo> {
       body: ListImage(),
     );
   }
-
-
 }
