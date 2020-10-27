@@ -59,11 +59,8 @@ flutter:
   # https://flutter.dev/assets-and-images/#from-packages
   assets:
     - assets/images/gyy.png
-    - assets/images/2.0x/gyy.png
-    - assets/images/3.0x/gyy.png
     - assets/images/yeye.png
     - assets/videos/animals.mp4
-    - assets/videos/vidsplay-autumn-leaves-wind_1.mp4
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

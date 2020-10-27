@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:text="这里是MainActivity"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/ButtonShowFragmentNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示FragmentOne"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/ButtonShowFragmentTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示FragmentTwo"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0"
+        />
+
+</LinearLayout>

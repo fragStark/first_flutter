@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutterapp/imagepage.dart';
-import 'package:flutterapp/listviewpage.dart';
-import 'home.dart';
-import 'like.dart';
-import 'textpage.dart';
+import 'package:flutterapp/ui/menu_page.dart';
+import 'menu/home.dart';
 
 
-void main() => runApp(new Home());
+//void main() => runApp(new Home());
+void main() => runApp(new SystemMenu());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
